@@ -1,0 +1,37 @@
+<% include ../partials/header %>
+<!-- Page Header -->
+<header class="masthead" style="background-image: url('images/about-bg.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="page-heading">
+                    <h1>Admin Dashboard</h1>
+                    <span class="subheading">This is what I do.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+  <!-- Main Content -->
+<div class="container">
+    <% adminActions.forEach((d)=>{ %>
+    <div class="row">
+        <div class="col-lg-4 mx-auto">
+            <button id="<%= d.actionId %>" onclick="catchID(this.id)" type="button" class="btn btn-outline-primary btn-block"><%= d.displayName %></button>
+        </div>
+    </div>
+    <% }); %> 
+</div>
+<script>
+    function catchID(clicked_id){
+        alert(clicked_id + " numarali butona tiklandi.");
+        if(clicked_id == 1){
+            window.location.href = 'changehomeimage'; return false;
+        }else if(clicked_id == 4){
+            window.location.href = 'addNewBlog'; return false;
+        }
+    }
+</script>
+<% include ../partials/footer %>
